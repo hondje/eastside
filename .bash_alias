@@ -1,0 +1,74 @@
+alias sudo='sudo '
+alias ip='ip -color -all -human-readable '
+alias bridge='bridge -color -statistics -statistics -details '
+alias grep='grep --colour=auto'
+alias mkdir='mkdir -p'
+alias lastb="sudo lastb "
+alias chown="chown --changes --preserve-root"
+alias chgrp="chgrp --changes --preserve-root"
+alias rm="rm -I --one-file-system --preserve-root"
+alias uptime='uptime -p'
+alias free='free -hwlt'
+alias which="type -a "
+alias hist="history | grep -i"
+
+alias vb="vim ~/.bashrc"
+alias vbb="source ~/.bashrc"
+alias va="vim ~/.bash_alias"
+alias vaa="source ~/.bash_alias"
+alias fd=fdfind
+alias amb='sensors -f | grep --color="never" Amb'
+
+
+[[ $( command -v batcat ) ]] && alias cat="batcat"
+[[ $( command -v cdu ) ]] && alias du="cdu -idh"
+[[ $( command -v mpv ) ]] && alias mpv="mpv --term-osd-bar --term-osd=force "
+[[ $( command -v most ) ]] && alias more='most'
+# [[ $( command -v lsusb && command -v lsusbi.py ) ]] && alias lsusb='lsusb.py -ciU'
+[[ $( command -v pydf ) ]] && alias df=pydf
+[[ $( command -v ncdu ) ]] && alias ncdu='ncdu -x2 --color=dark'
+[[ $( command -v vim ) ]] && alias vi='vim'
+# [[ $( command -v fbterm ) ]] &&  alias fbterm='fbterm -n "xos4 Terminus" -s 20 -v '
+[[ $( command -v nmcli ) ]] && alias nmcli="echo; nmcli -p "
+[[ $( command -v nano ) ]] && alias nano="nano --syntax=sh -l -m -i -T4"
+[[ $( command -v wavemon ) ]] && alias wavemon="sudo wavemon "
+[[ $( command -v colormake ) ]] && alias make="colormake -j4"
+[[ $( command -v makepkg ) ]] && alias makepkg="makepkg -cCisr"
+[[ $( command -v trizen ) ]]  && alias trizen="trizen --needed --noedit "
+
+if [[ $( command -v exa ) ]]; then
+    alias ls="exa -Fhm@ --group-directories-first --git --git-ignore -I '*~|*.bak'" 
+fi
+
+[[ $( command -v dfc ) ]] && alias df='dfc -p -/dev/loop,tmpfs,udev -swdT'
+#  if [[ $( command -v exa ) ]]; then
+#      alias ls="exa -lGmhF@ --color-scale --group-directories-first --git  -I '*~|*.bak' "
+#  else
+#      alias ls='ls --color=auto -BFGh'  
+#  fi
+# if [[ $( command -v lsd ) ]]; then
+#     alias ls='lsd --classify \
+#     --group-dirs first \
+#     --date relative --timesort \
+#     --total-size 2>/dev/null'
+# fi
+
+if [[ $( command -v systemctl ) ]]; then
+    alias machinectl="machinectl --max-addresses=all --no-pager"
+    alias cgls='systemd-cgls'
+    alias cgtop='systemd-cgtop'
+    alias w="loginctl"
+fi
+
+if [[ $( command -v pinfo ) ]]; then
+    alias man="pinfo"
+    alias info="pinfo"
+fi
+
+if [[ "$TERM" = "xterm-kitty" ]]; then
+    alias icat="kitty +kitten icat"
+    alias diff="kitty +kitten diff"
+fi
+
+# vim:set filetype=sh:
+
